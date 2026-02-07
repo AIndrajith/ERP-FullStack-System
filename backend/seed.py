@@ -88,6 +88,8 @@ def seed():
                 db.add(user)
                 db.flush()
                 user.roles.append(db_roles[role_name])
+            else:
+                user.password_hash = get_password_hash(pwd)
 
         # Create some departments
         depts = ["IT", "HR", "Sales", "Operations"]
